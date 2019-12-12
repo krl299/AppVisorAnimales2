@@ -8,9 +8,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -54,5 +56,12 @@ public class VisorAnimalesController implements Initializable
         Image imagen = new Image(new_val.getImagenGrande());
         imageView.setImage(imagen);
             });
+//        
+        listView.setCellFactory(new Callback<ListView<Animal>, ListCell<Animal>>() {
+            @Override
+            public ListCell<Animal> call(ListView<Animal> param) {
+                return new CeldaImagenTexto();
+            }
+        });
     }   // Fin de initialize 
 }  // Fin de Clase
